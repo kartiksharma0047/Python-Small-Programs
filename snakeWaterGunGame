@@ -1,0 +1,55 @@
+import random
+
+def startProgram():
+    print("Welcome to Snake, Water, and Gun!")
+    while True:
+        try:
+            choice = int(input("1. Start Game\n2. Exit\nSelect value between 1 and 2: "))
+            if choice == 2:
+                print("Thanks for playing!")
+                break
+            elif choice == 1:
+                selectValueMenu()
+            else:
+                print("Invalid input! Please select 1 or 2.\n")
+        except ValueError:
+            print("Please enter a valid number.\n")
+
+def selectValueMenu():
+    while True:
+        try:
+            print("\nChoose your option:")
+            print("1. Snake")
+            print("2. Water")
+            print("3. Gun")
+            print("4. Exit to Main Menu")
+            selectValue = int(input("Select your choice (1-4): "))
+
+            if selectValue in [1, 2, 3]:
+                gameStart(selectValue)
+            elif selectValue == 4:
+                print("Returning to main menu...\n")
+                return  # go back to startProgram
+            else:
+                print("Invalid choice! Please select between 1 and 4.\n")
+        except ValueError:
+            print("Please enter a valid number.\n")
+
+def gameStart(userChoice):
+    options = {1: "Snake", 2: "Water", 3: "Gun"}
+    programChoice = random.choice([1, 2, 3])
+
+    print(f"\nYou chose: {options[userChoice]}")
+    print(f"Computer chose: {options[programChoice]}")
+
+    if userChoice == programChoice:
+        print("It's a tie! Try again.\n")
+    elif (userChoice == 1 and programChoice == 2) or \
+         (userChoice == 2 and programChoice == 3) or \
+         (userChoice == 3 and programChoice == 1):
+        print("You win!\n")
+    else:
+        print("You lose!\n")
+
+# Start the game
+startProgram()
