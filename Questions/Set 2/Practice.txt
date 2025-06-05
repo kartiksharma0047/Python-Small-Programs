@@ -1,0 +1,5 @@
+Hi there this is a practice document.
+
+Just trying to read it via python.
+
+Good Luck!
